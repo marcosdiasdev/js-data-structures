@@ -1,0 +1,12 @@
+{
+  "name": "js-data-structures",
+  "version": "1.0.0",
+  "description": "JavaScript Data Structures",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
