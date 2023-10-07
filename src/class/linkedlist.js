@@ -46,7 +46,30 @@ class LinkedList {
     this.length++;
   }
 
-  insert(position, element) {}
+  insert(position, element) {
+    if (position >= 0 && position <= this.length) {
+      let node = new Node(element),
+        current = this.head,
+        previous,
+        index = 0;
+
+      if (position === 0) {
+        node.next = current;
+        this.head = node;
+      } else {
+        while (index++ < position) {
+          previous = current;
+          current = current.next;
+        }
+        node.next = current;
+        previous.next = node;
+      }
+      this.length++;
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   removeAt(position) {
     if (position > -1 && position < this.length) {

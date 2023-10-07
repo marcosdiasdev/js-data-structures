@@ -66,6 +66,40 @@ describe("LinkedList", () => {
     });
   });
 
+  describe("insert", () => {
+    it("should insert and return true when position is valid", () => {
+      const list = new LinkedList();
+
+      expect(list.insert(0, "someValue")).toBe(true);
+      expect(list.size()).toBe(1);
+
+      expect(list.insert(1, "someOtherValue")).toBe(true);
+      expect(list.size()).toBe(2);
+    });
+
+    it("should insert correctly between existent positions", () => {
+      const list = new LinkedList();
+      list.append("apple");
+      list.append("banana");
+      list.append("cashew");
+      list.append("date");
+
+      expect(list.get(1)).toBe("banana");
+      expect(list.insert(1, "strawberry")).toBe(true);
+      expect(list.get(1)).toBe("strawberry");
+    });
+
+    it("should not insert and return false when position is out of bounds", () => {
+      const list = new LinkedList();
+
+      expect(list.insert(-1, "someValue")).toBe(false);
+      expect(list.size()).toBe(0);
+
+      expect(list.insert(1, "someValue")).toBe(false);
+      expect(list.size()).toBe(0);
+    });
+  });
+
   describe("removeAt", () => {
     it("should return the element at the removed position", () => {
       const list = new LinkedList();
